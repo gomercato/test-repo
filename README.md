@@ -6,17 +6,30 @@ Ambiente Docker per lo sviluppo di customizzazioni EspoCRM.
 
 - Docker
 - Docker Compose
+- Make
 
 ## Quick Start
 
 ```bash
-# Avvia l'ambiente
-docker compose up -d
-
-# Accedi a EspoCRM
-# http://localhost:8080
-# User: admin / Password: admin123
+make up
 ```
+
+Accedi a EspoCRM: http://localhost:8080
+Credenziali: `admin` / `admin123`
+
+## Comandi Make
+
+| Comando | Descrizione |
+|---------|-------------|
+| `make up` | Avvia l'ambiente di sviluppo |
+| `make down` | Ferma l'ambiente |
+| `make restart` | Riavvia i container |
+| `make logs` | Mostra i log in tempo reale |
+| `make shell` | Apre shell nel container |
+| `make rebuild` | Rebuild cache (dopo modifiche PHP) |
+| `make clear-cache` | Pulisce la cache |
+| `make status` | Stato dei container |
+| `make clean` | Stop e rimuovi volumi (cancella dati) |
 
 ## Struttura Customizzazioni
 
@@ -28,28 +41,6 @@ custom/
 
 client/
 └── custom/          # Customizzazioni frontend/temi
-```
-
-## Comandi Utili
-
-```bash
-# Rebuild cache (dopo modifiche PHP)
-docker compose exec espocrm php rebuild.php
-
-# Clear cache
-docker compose exec espocrm php clear_cache.php
-
-# Shell nel container
-docker compose exec espocrm bash
-
-# Log
-docker compose logs -f espocrm
-
-# Stop
-docker compose down
-
-# Stop e rimuovi volumi (ATTENZIONE: cancella dati)
-docker compose down --volumes
 ```
 
 ## Configurazione
