@@ -11,6 +11,10 @@ Ambiente Docker per lo sviluppo di customizzazioni EspoCRM.
 ## Quick Start
 
 ```bash
+# 1. Copia il file di configurazione
+cp .env.dev.example .env
+
+# 2. Avvia l'ambiente
 make up
 ```
 
@@ -46,6 +50,12 @@ client/
 ```
 
 ## Configurazione
+
+Copia il file di esempio per creare la configurazione locale:
+
+```bash
+cp .env.dev.example .env
+```
 
 Modifica `.env` per personalizzare:
 
