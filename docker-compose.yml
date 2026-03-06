@@ -1,7 +1,6 @@
 services:
   espocrm-db:
     image: mariadb:latest
-    container_name: espocrm-db
     environment:
       MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       MARIADB_DATABASE: ${DB_NAME}
@@ -13,7 +12,6 @@ services:
 
   espocrm:
     image: espocrm/espocrm:latest
-    container_name: espocrm
     environment:
       ESPOCRM_DATABASE_PLATFORM: Mysql
       ESPOCRM_DATABASE_HOST: espocrm-db
@@ -38,7 +36,6 @@ services:
 
   espocrm-daemon:
     image: espocrm/espocrm:latest
-    container_name: espocrm-daemon
     volumes:
       - espocrm:/var/www/html
       - ./custom:/var/www/html/custom
